@@ -1,3 +1,4 @@
+
 let currentNameIndex = 0;
 const names = ['Zypheris', 'Yusuf'];
 let isDeleting = !1;
@@ -113,7 +114,19 @@ function initAboutMeTyping() {
         typeText(textElements[2], texts[2], 4000)
     }, 1500)
 }
-
+async function updateVisitorCount() {
+    try {
+        let count = localStorage.getItem('visitorCount') || 0;
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+        animateCounter(0, count, 2000)
+    } catch (error) {
+        console.error('Visitor count update failed:', error);
+        if (visitorCount) {
+            visitorCount.textContent = '---'
+        }
+    }
+}
 
 function animateCounter(start, end, duration) {
     if (!visitorCount) return;
@@ -132,7 +145,7 @@ function animateCounter(start, end, duration) {
 }
 async function loadDiscordStatus() {
     try {
-        const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`);
+        const response = await fetch(https://api.lanyard.rest/v1/users/${DISCORD_USER_ID});
         const data = await response.json();
         if (data.success && discordStatus && discordStatusText) {
             const status = data.data.discord_status;
@@ -142,7 +155,7 @@ async function loadDiscordStatus() {
                 'dnd': 'zypheris şuanda discord\'ta aktif ',
                 'offline': 'Çevrimdışı'
             };
-            discordStatus.className = `status-indicator ${status}`;
+            discordStatus.className = status-indicator ${status};
             discordStatusText.textContent = statusTexts[status] || 'Bilinmiyor'
         }
     } catch (error) {
@@ -185,9 +198,9 @@ function initTypewriter() {
 }
 async function loadProjects() {
     try {
-        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
+        const response = await fetch(https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100);
         if (!response.ok) {
-            throw new Error(`GitHub API error: ${response.status}`)
+            throw new Error(GitHub API error: ${response.status})
         }
         const repos = await response.json();
         const filteredRepos = repos.filter(repo => !repo.fork).sort((a, b) => b.stargazers_count - a.stargazers_count);
@@ -200,7 +213,7 @@ async function loadProjects() {
                 projectsHTML += createProjectCard(project, index === 0)
             });
             if (filteredRepos.length > 5) {
-                projectsHTML += `
+                projectsHTML += 
                     <div class="more-projects-card">
                         <h3>+${filteredRepos.length - 5} Daha Fazla Proje</h3>
                         <p>Tüm projelerimi görmek için tıklayın</p>
@@ -209,7 +222,7 @@ async function loadProjects() {
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                `
+                
             }
             projectsGrid.innerHTML = projectsHTML
         }
@@ -220,14 +233,14 @@ async function loadProjects() {
         }
     } catch (error) {
         console.error('GitHub API error:', error);
-        const errorMessage = `
+        const errorMessage = 
             <div style="text-align: center; padding: 40px; color: rgba(255, 255, 255, 0.7);">
                 <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px; color: #ed4245;"></i>
                 <h3>Projeler yüklenemedi</h3>
                 <p>GitHub API'sine bağlanırken bir hata oluştu.</p>
                 <p style="font-size: 0.9rem; margin-top: 10px;">Lütfen GitHub kullanıcı adınızı kontrol edin.</p>
             </div>
-        `;
+        ;
         if (projectsLoading) {
             projectsLoading.innerHTML = errorMessage
         }
@@ -243,7 +256,7 @@ function createProjectCard(project, isNew = !1) {
     const stars = project.stargazers_count || 0;
     const forks = project.forks_count || 0;
     const lastUpdate = new Date(project.updated_at).toLocaleDateString('tr-TR');
-    return `
+    return 
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-name">${project.name}</h3>
@@ -263,10 +276,10 @@ function createProjectCard(project, isNew = !1) {
                     <i class="fab fa-github"></i>
                     Kodu Görüntüle
                 </a>
-                ${project.homepage ? `<a href="${project.homepage}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i>Canlı Demo</a>` : ''}
+                ${project.homepage ? <a href="${project.homepage}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i>Canlı Demo</a> : ''}
             </div>
         </div>
-    `
+    
 }
 
 function initScrollToTop() {
@@ -323,7 +336,7 @@ function initAnimations() {
     animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(50px)';
-        el.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        el.style.transition = all 0.6s ease-out ${index * 0.1}s;
         observer.observe(el)
     })
 }
@@ -351,7 +364,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function logPerformance() {
     if (window.performance) {
         const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-        console.log(`Sayfa yükleme süresi: ${loadTime}ms`)
+        console.log(Sayfa yükleme süresi: ${loadTime}ms)
     }
 }
 window.addEventListener('load', logPerformance)
+
+
