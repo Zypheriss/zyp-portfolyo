@@ -6,8 +6,6 @@
     <title>Projeler - Yusuf</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Anti-Copy Protection -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -15,7 +13,6 @@
     <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     
     <style>
-        /* Disable text selection */
         * {
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -24,21 +21,15 @@
             -webkit-touch-callout: none;
             -webkit-tap-highlight-color: transparent;
         }
-        
-        /* Disable right click context menu */
         body {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
         }
-        
-        /* Hide from print */
         @media print {
             body { display: none !important; }
         }
-        
-        /* Disable drag */
         img, video, audio {
             -webkit-user-drag: none;
             -khtml-user-drag: none;
@@ -47,8 +38,6 @@
             user-drag: none;
             pointer-events: none;
         }
-        
-        /* Anti-screenshot overlay */
         .anti-screenshot {
             position: fixed;
             top: 0;
@@ -64,10 +53,7 @@
     </style>
 </head>
 <body>
-    <!-- Anti-Screenshot Overlay -->
     <div class="anti-screenshot"></div>
-    
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="nav-logo">
@@ -75,24 +61,12 @@
             </div>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Ana Sayfa</a>
-                <a href="index.html#about" class="nav-link">Hakkımda</a>
                 <a href="#" class="nav-link active">Projeler</a>
                 <a href="index.html#technologies" class="nav-link">Teknolojiler</a>
                 <a href="index.html#contact" class="nav-link">İletişim</a>
             </div>
         </div>
     </nav>
-
-    <!-- Visitor Counter -->
-    <div class="visitor-counter">
-        <div class="counter-content">
-            <i class="fas fa-eye"></i>
-            <span id="visitorCount">0</span>
-            <span class="counter-text">ziyaretçi</span>
-        </div>
-    </div>
-
-    <!-- Projects Page -->
     <section class="projects-page">
         <div class="container">
             <div class="page-header">
@@ -101,15 +75,12 @@
             </div>
             <div class="loading" id="allProjectsLoading">
                 <div class="spinner"></div>
-                <p>bu sayfada hata vardır yarın düzelticem 13.07.2025</p>
+                <p>Tüm projeler yükleniyor...</p>
             </div>
             <div class="projects-grid-all" id="allProjectsGrid" style="display: none;">
-                <!-- All projects will be loaded here -->
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-left">
@@ -124,9 +95,9 @@
                     Modern web teknolojileri ile yenilikçi, verimli ve kullanıcı dostu dijital deneyimler yaratıyorum.
                 </p>
                 <div class="footer-social">
-                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:your.email@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/zypheriss" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/users/773582512647569409" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="mailto:zypheris@outlook.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="footer-right">
@@ -150,8 +121,6 @@
             <p>&copy; 2025 - Tüm hakları saklıdır.</p>
         </div>
     </footer>
-
-    <!-- Scroll to Top Button -->
     <button id="scrollTop" class="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </button>
