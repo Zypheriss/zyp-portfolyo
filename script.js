@@ -155,9 +155,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // About Me Typing Animation
 function initAboutMeTyping() {
   const texts = [
-    "Merhaba! Ben Yusuf, tutkulu bir yazılım geliştiricisiyim.",
-    "Modern web teknolojileri ve kullanıcı deneyimi odaklı projeler geliştiriyorum.",
-    "JavaScript, React, Node.js ve daha birçok teknoloji ile çalışıyorum.",
+    "Hi, I'm Yusuf, 23 years old, and I've been an active software developer for five years. I mostly work on Discord projects.",
+    " I also sometimes create websites like store demos and Discord bot demos",
+    " which I share on my GitHub account. I live in Bursa.",
   ];
 
   const textElements = [
@@ -185,28 +185,18 @@ function initAboutMeTyping() {
       }, 50);
     }, delay);
   }
-
-  // Start typing animation after page load
   setTimeout(() => {
     typeText(textElements[0], texts[0], 0);
     typeText(textElements[1], texts[1], 2000);
     typeText(textElements[2], texts[2], 4000);
   }, 1500);
 }
-
-// Visitor Counter
 async function updateVisitorCount() {
   try {
-    // Simulate visitor count (replace with your backend API)
     let count = localStorage.getItem("visitorCount") || 0;
     count = parseInt(count) + 1;
     localStorage.setItem("visitorCount", count);
-
-    // Animate counter
     animateCounter(0, count, 2000);
-
-    // In a real implementation, you would send this to your backend:
-    // await fetch('/api/visitors', { method: 'POST' });
   } catch (error) {
     console.error("Visitor count update failed:", error);
     if (visitorCount) {
@@ -234,8 +224,6 @@ function animateCounter(start, end, duration) {
 
   requestAnimationFrame(updateCounter);
 }
-
-// Discord Status (Lanyard API)
 async function loadDiscordStatus() {
   try {
     const response = await fetch(
@@ -248,7 +236,7 @@ async function loadDiscordStatus() {
       const statusTexts = {
         online: "Çevrimiçi",
         idle: "Boşta",
-        dnd: "Rahatsız Etmeyin",
+        dnd: "zypheris Şuanda discord'ta aktif",
         offline: "Çevrimdışı",
       };
 
@@ -317,8 +305,6 @@ async function loadProjects() {
       const featuredProjects = filteredRepos.slice(0, 5);
       projectsLoading.style.display = "none";
       projectsGrid.style.display = "grid";
-
-      // Create project cards
       let projectsHTML = "";
       featuredProjects.forEach((project, index) => {
         projectsHTML += createProjectCard(project, index === 0);
@@ -365,7 +351,7 @@ async function loadProjects() {
   }
 }
 function createProjectCard(project, isNew = false) {
-  const language = project.language || "Unknown";
+  const language = project.language || "yazılım dili yok";
   const description = project.description || "Açıklama bulunmuyor.";
   const stars = project.stargazers_count || 0;
   const forks = project.forks_count || 0;
